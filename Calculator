@@ -1,0 +1,51 @@
+var target;
+var carb;
+var x;
+function cr() {
+  setScreen("screen2");
+  onEvent("button5", "click", function() {
+    setScreen("screen1");
+  });
+}
+if ((getText("carb") === "" || getNumber("carb") === 0) || ((getText("target") === "" || getNumber("target") === 0) || (getText("b-correct") === "" || getNumber("b-correct") === 0))) {
+  cr();
+} else {
+  onEvent("button4", "click", cr());
+  onEvent("button3", "click", function() {
+    setText("label2", "---");
+    setText("blood", "");
+    setText("carb1", "");
+    setText("carb2", "");
+    setText("carb3", "");
+    setText("carb4", "");
+    setText("carb5", "");
+  });
+  onEvent("dun", "click", function() {
+    var x = 0;
+    if ((getNumber("blood") - 150) / 100 < 0) {
+      x = 0;
+    } else {
+      x = (getNumber("blood") - 150) / 100;
+    }
+    if (getText("carb1") === "") {
+      setProperty("carb1", "text", "0");
+    }
+    if (getText("carb2") === "") {
+      setProperty("carb2", "text", "0");
+    }
+    if (getText("carb3") === "") {
+      setProperty("carb3", "text", "0");
+    }
+    if (getText("carb4") === "") {
+      setProperty("carb4", "text", "0");
+    }
+    if (getText("carb5") === "") {
+      setProperty("carb5", "text", "0");
+    }
+    if (getProperty("dropdown1", "value") === "Breakfast") {
+      
+    } else {
+      
+    }
+  });
+}
